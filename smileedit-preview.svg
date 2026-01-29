@@ -1,0 +1,44 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f093fb;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5576c;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4ecdc4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#44af69;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Header/Toolbar -->
+  <rect width="400" height="50" fill="rgba(255,255,255,0.15)"/>
+  <text x="20" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">SmileEdit</text>
+  
+  <!-- Toolbar Icons -->
+  <g transform="translate(280, 15)">
+    <rect width="30" height="20" rx="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <text x="10" y="15" font-size="12" fill="white" text-anchor="middle">B</text>
+  </g>
+  <g transform="translate(320, 15)">
+    <rect width="30" height="20" rx="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="1"/>
+    <text x="10" y="15" font-size="12" fill="white" text-anchor="middle">I</text>
+  </g>
+  
+  <!-- Editor Content -->
+  <rect x="20" y="70" width="360" height="180" rx="8" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  
+  <!-- Text Lines (simulating content) -->
+  <line x1="30" y1="90" x2="350" y2="90" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <line x1="30" y1="110" x2="350" y2="110" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <line x1="30" y1="130" x2="280" y2="130" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  
+  <!-- Drag and Drop Zone -->
+  <rect x="30" y="150" width="340" height="80" rx="6" fill="rgba(255,255,255,0.08)" stroke="url(#accentGradient)" stroke-width="2" stroke-dasharray="5,5"/>
+  <text x="200" y="200" font-family="Arial" font-size="12" fill="rgba(255,255,255,0.8)" text-anchor="middle">Glissez-déposez des éléments</text>
+  
+  <!-- Footer Info -->
+  <text x="20" y="280" font-family="Arial" font-size="12" font-weight="bold" fill="white" opacity="0.9">✓ Drag & Drop • Export • Real-time Collab</text>
+</svg>

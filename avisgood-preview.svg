@@ -1,0 +1,43 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="300" fill="url(#bgGradient)"/>
+  
+  <!-- Header -->
+  <rect width="400" height="50" fill="rgba(255,255,255,0.1)"/>
+  <text x="20" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">AvisGood</text>
+  
+  <!-- Stars Rating -->
+  <g transform="translate(50, 80)">
+    <text x="0" y="0" font-size="24" fill="white">⭐⭐⭐⭐⭐</text>
+  </g>
+  
+  <!-- Review Cards -->
+  <rect x="20" y="130" width="160" height="80" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="30" y="150" font-family="Arial" font-size="12" font-weight="bold" fill="white">Client Avis</text>
+  <circle cx="30" cy="160" r="3" fill="url(#accentGradient)"/>
+  <circle cx="37" cy="160" r="3" fill="url(#accentGradient)"/>
+  <circle cx="44" cy="160" r="3" fill="url(#accentGradient)"/>
+  <circle cx="51" cy="160" r="3" fill="url(#accentGradient)"/>
+  <circle cx="58" cy="160" r="3" fill="url(#accentGradient)"/>
+  <text x="30" y="175" font-family="Arial" font-size="10" fill="rgba(255,255,255,0.8)" width="140">Plateforme simple et efficace</text>
+  
+  <rect x="220" y="130" width="160" height="80" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
+  <text x="230" y="150" font-family="Arial" font-size="12" font-weight="bold" fill="white">Admin Panel</text>
+  <text x="230" y="170" font-family="Arial" font-size="10" fill="rgba(255,255,255,0.8)">Analytics en temps réel</text>
+  <rect x="230" y="180" width="140" height="20" rx="4" fill="rgba(255,165,0,0.3)" stroke="url(#accentGradient)" stroke-width="1"/>
+  <text x="240" y="194" font-family="Arial" font-size="9" fill="white">Engagement: 87%</text>
+  
+  <!-- Footer -->
+  <text x="20" y="280" font-family="Arial" font-size="12" font-weight="bold" fill="white" opacity="0.9">✓ Gestion d'Avis • Analytics • Authentification</text>
+</svg>
