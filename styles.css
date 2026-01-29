@@ -574,6 +574,25 @@ body {
     overflow: hidden;
 }
 
+.project-image::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+}
+
+.project-card:hover .project-image::before {
+    opacity: 1;
+}
+
+.project-card:hover .project-image {
+    filter: brightness(1.15) contrast(1.1);
+    transform: scale(1.05);
+}
+
 .project-preview-overlay {
     position: absolute;
     inset: 0;
@@ -582,9 +601,11 @@ body {
     align-items: center;
     justify-content: center;
     gap: var(--spacing-md);
-    background: rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.8) 100%);
+    backdrop-filter: blur(4px);
     opacity: 0;
-    transition: var(--transition-smooth);
+    transition: opacity 0.4s ease, backdrop-filter 0.4s ease;
+    padding: var(--spacing-lg);
 }
 
 .project-card:hover .project-preview-overlay {
@@ -592,20 +613,24 @@ body {
 }
 
 .preview-icon {
-    font-size: 3rem;
+    font-size: 4rem;
     animation: bounce 0.6s ease-in-out infinite;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+    display: block;
+    text-align: center;
 }
 
 .preview-text {
     color: white;
-    font-weight: 600;
-    font-size: 1.1rem;
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+    font-weight: 700;
+    font-size: 1.3rem;
+    text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-15px) scale(1.1); }
 }
 
 .project-image.avisgood {
