@@ -17,15 +17,30 @@ window.addEventListener('scroll', () => {
 });
 
 // Mobile menu toggle
-hamburger.addEventListener('click', () => {
-    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+hamburger.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navMenu.classList.toggle('active');
 });
 
 // Close mobile menu when clicking a link
 navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navMenu.style.display = 'none';
+        navMenu.classList.remove('active');
     });
+});
+
+// Reset menu on window resize
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 768) {
+        navMenu.classList.remove('active');
+    }
+});
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+        navMenu.classList.remove('active');
+    }
 });
 
 // ============================================
