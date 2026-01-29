@@ -1,0 +1,36 @@
+# Configuration GitHub Pages
+
+# Theme (optional - we use custom CSS)
+# theme: jekyll-theme-minimal
+
+# Site settings
+title: "Malin Jeremy - Développeur Web & DevOps"
+description: "Portfolio professionnel moderne avec projets innovants"
+url: "https://feevelvet.github.io/portfolio-dev"
+baseurl: "/portfolio-dev"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Exclude files from build
+exclude:
+  - .gitignore
+  - README.md
+  - node_modules
+  - package.json
+  - yarn.lock
+
+# Permalink structure
+permalink: pretty
+
+# Future posts
+future: false
+
+# Timezone
+timezone: Europe/Paris
+
+# Analytics (optional)
+google_analytics: 
