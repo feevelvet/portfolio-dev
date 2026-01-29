@@ -1,43 +1,67 @@
-<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ffa500;stop-opacity:1" />
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f7fa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f2f5;stop-opacity:1" />
     </linearGradient>
   </defs>
   
   <!-- Background -->
-  <rect width="400" height="300" fill="url(#bgGradient)"/>
+  <rect width="1200" height="700" fill="url(#bgGrad)"/>
   
   <!-- Header -->
-  <rect width="400" height="50" fill="rgba(255,255,255,0.1)"/>
-  <text x="20" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">AvisGood</text>
+  <rect width="1200" height="80" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="40" y="50" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#f39c12">avisgood</text>
   
-  <!-- Stars Rating -->
-  <g transform="translate(50, 80)">
-    <text x="0" y="0" font-size="24" fill="white">⭐⭐⭐⭐⭐</text>
-  </g>
+  <!-- Nav Links -->
+  <text x="500" y="50" font-family="Arial" font-size="14" fill="#333">About</text>
+  <text x="620" y="50" font-family="Arial" font-size="14" fill="#333">How it works</text>
+  <text x="800" y="50" font-family="Arial" font-size="14" fill="#333">Contact</text>
   
-  <!-- Review Cards -->
-  <rect x="20" y="130" width="160" height="80" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-  <text x="30" y="150" font-family="Arial" font-size="12" font-weight="bold" fill="white">Client Avis</text>
-  <circle cx="30" cy="160" r="3" fill="url(#accentGradient)"/>
-  <circle cx="37" cy="160" r="3" fill="url(#accentGradient)"/>
-  <circle cx="44" cy="160" r="3" fill="url(#accentGradient)"/>
-  <circle cx="51" cy="160" r="3" fill="url(#accentGradient)"/>
-  <circle cx="58" cy="160" r="3" fill="url(#accentGradient)"/>
-  <text x="30" y="175" font-family="Arial" font-size="10" fill="rgba(255,255,255,0.8)" width="140">Plateforme simple et efficace</text>
+  <!-- Clients Button -->
+  <rect x="1050" y="35" width="130" height="40" rx="20" fill="#f39c12"/>
+  <text x="1115" y="60" font-family="Arial" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Clients</text>
   
-  <rect x="220" y="130" width="160" height="80" rx="8" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="1"/>
-  <text x="230" y="150" font-family="Arial" font-size="12" font-weight="bold" fill="white">Admin Panel</text>
-  <text x="230" y="170" font-family="Arial" font-size="10" fill="rgba(255,255,255,0.8)">Analytics en temps réel</text>
-  <rect x="230" y="180" width="140" height="20" rx="4" fill="rgba(255,165,0,0.3)" stroke="url(#accentGradient)" stroke-width="1"/>
-  <text x="240" y="194" font-family="Arial" font-size="9" fill="white">Engagement: 87%</text>
+  <!-- Main Content -->
+  <text x="100" y="150" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#000">Protect and</text>
+  <text x="100" y="210" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#000">Transform Your</text>
+  <text x="100" y="270" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#000">Reputation.</text>
   
-  <!-- Footer -->
-  <text x="20" y="280" font-family="Arial" font-size="12" font-weight="bold" fill="white" opacity="0.9">✓ Gestion d'Avis • Analytics • Authentification</text>
+  <text x="100" y="330" font-family="Arial" font-size="14" fill="#666" width="500">Our AI intercepts dissatisfied customers, responds automatically</text>
+  <text x="100" y="350" font-family="Arial" font-size="14" fill="#666">on all your platforms, and multiplies your positive reviews by 300%.</text>
+  
+  <!-- Buttons -->
+  <rect x="100" y="380" width="200" height="50" rx="25" fill="#f39c12"/>
+  <text x="200" y="410" font-family="Arial" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Free 30-day trial</text>
+  
+  <rect x="330" y="380" width="180" height="50" rx="25" fill="white" stroke="#f39c12" stroke-width="2"/>
+  <text x="420" y="410" font-family="Arial" font-size="13" font-weight="bold" fill="#f39c12" text-anchor="middle">▶ Watch demo</text>
+  
+  <!-- Stats -->
+  <text x="100" y="480" font-family="Arial" font-size="12" fill="#999">⚡ Setup in 5 minutes</text>
+  <text x="350" y="480" font-family="Arial" font-size="12" fill="#999">📊 Results in 48 hours</text>
+  <text x="650" y="480" font-family="Arial" font-size="12" fill="#999">✓ No commitment</text>
+  
+  <!-- Cards on Right -->
+  <rect x="750" y="150" width="380" height="280" rx="12" fill="white" stroke="#e0e0e0" stroke-width="1" filter="drop-shadow(0 4px 12px rgba(0,0,0,0.1))"/>
+  
+  <!-- Card 1 - Review -->
+  <circle cx="900" cy="200" r="25" fill="#f39c12" opacity="0.2"/>
+  <text x="900" y="210" font-size="24" text-anchor="middle">👤</text>
+  
+  <text x="770" y="200" font-family="Arial" font-size="12" font-weight="bold" fill="#333">Client Review</text>
+  <text x="770" y="225" font-family="Arial" font-size="12" fill="#f39c12">⭐⭐⭐⭐⭐</text>
+  <text x="770" y="250" font-family="Arial" font-size="11" fill="#666">Plateforme simple et efficace</text>
+  
+  <!-- Stat Boxes -->
+  <rect x="770" y="280" width="150" height="80" rx="8" fill="#f39c12" opacity="0.1" stroke="#f39c12" stroke-width="1"/>
+  <text x="845" y="305" font-family="Arial" font-size="20" font-weight="bold" fill="#f39c12" text-anchor="middle">87%</text>
+  <text x="845" y="328" font-family="Arial" font-size="11" fill="#333" text-anchor="middle">Negative reviews</text>
+  <text x="845" y="343" font-family="Arial" font-size="11" fill="#333" text-anchor="middle">prevented</text>
+  
+  <rect x="950" y="280" width="150" height="80" rx="8" fill="#f39c12" opacity="0.1" stroke="#f39c12" stroke-width="1"/>
+  <text x="1025" y="305" font-family="Arial" font-size="20" font-weight="bold" fill="#f39c12" text-anchor="middle">+300%</text>
+  <text x="1025" y="328" font-family="Arial" font-size="11" fill="#333" text-anchor="middle">Positive reviews</text>
+  <text x="1025" y="343" font-family="Arial" font-size="11" fill="#333" text-anchor="middle">increase</text>
 </svg>
+
