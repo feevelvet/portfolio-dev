@@ -31,38 +31,29 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Bento Grid -->
     <section class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1 class="hero-title">
-                    Développeur Web<br>
-                    <span class="gradient-text">& Expert DevOps</span>
-                </h1>
-                <p class="hero-subtitle">
-                    Créateur de solutions digitales modernes et performantes
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <div class="stat-number">3+</div>
-                        <div class="stat-label">Projets majeurs</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Qualité</div>
-                    </div>
-                    <div class="stat">
-                        <div class="stat-number">∞</div>
-                        <div class="stat-label">Passionné</div>
+        <div class="hero-bento-container">
+            <!-- Large Hero Card -->
+            <div class="hero-card hero-card-large hero-card-main">
+                <div class="card-content">
+                    <h1 class="hero-title">
+                        Développeur Web<br>
+                        <span class="gradient-text">& Expert DevOps</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Créateur de solutions digitales modernes et performantes
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="code-window">
+            
+            <!-- Code Window Card -->
+            <div class="hero-card hero-card-code">
+                <div class="code-window-bento">
                     <div class="code-header">
                         <div class="code-dot red"></div>
                         <div class="code-dot yellow"></div>
@@ -70,10 +61,29 @@
                     </div>
                     <pre><code>&lt;Developer&gt;
   &lt;name&gt;Malin Jeremy&lt;/name&gt;
-  &lt;passion&gt;Web Development&lt;/passion&gt;
-  &lt;role&gt;Full Stack &amp; DevOps&lt;/role&gt;
-  &lt;mission&gt;Build amazing&lt;/mission&gt;
+  &lt;passion&gt;Web Dev&lt;/passion&gt;
+  &lt;role&gt;Full Stack&lt;/role&gt;
 &lt;/Developer&gt;</code></pre>
+                </div>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="hero-card hero-card-stat">
+                <div class="stat-content">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Projets majeurs</div>
+                </div>
+            </div>
+            <div class="hero-card hero-card-stat">
+                <div class="stat-content">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Qualité</div>
+                </div>
+            </div>
+            <div class="hero-card hero-card-stat">
+                <div class="stat-content">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Passionné</div>
                 </div>
             </div>
         </div>
@@ -131,13 +141,13 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
+    <!-- Projects Section with Bento Grid -->
     <section id="projects" class="projects">
         <div class="container">
             <h2 class="section-title">Projets Clés</h2>
-            <div class="projects-grid">
+            <div class="projects-bento-grid">
                 <!-- AvisGood -->
-                <div class="project-card">
+                <div class="project-card bento-card-large">
                     <div class="project-image avisgood">
                         <img src="avisgood.png" alt="AvisGood preview" class="project-preview-img">
                         <div class="project-preview-overlay">
@@ -220,7 +230,7 @@
         </div>
     </section>
 
-    <!-- Skills Section -->
+    <!-- Skills Section with Bento Cards -->
     <section id="skills" class="skills">
         <div class="container">
             <h2 class="section-title">Compétences Techniques</h2>
