@@ -25,9 +25,6 @@
                         sans: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace']
                     },
-                    backgroundImage: {
-                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-                    },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
                     },
@@ -43,6 +40,17 @@
     </script>
     
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             background: #0B1120;
@@ -53,10 +61,6 @@
             background: rgba(15, 23, 37, 0.7);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(6, 182, 212, 0.1);
-        }
-        
-        .glow-cyan {
-            box-shadow: 0 0 40px rgba(6, 182, 212, 0.2);
         }
         
         .terminal-window {
@@ -97,28 +101,13 @@
         .terminal-code .string { color: #f1fa8c; }
         .terminal-code .comment { color: #6272a4; }
         
-        .button-glass {
-            background: rgba(6, 182, 212, 0.1);
-            border: 1px solid rgba(6, 182, 212, 0.5);
-            transition: all 0.3s ease;
+        @media (max-width: 768px) {
+            .terminal-code {
+                padding: 16px;
+                font-size: 12px;
+            }
         }
-        
-        .button-glass:hover {
-            background: rgba(6, 182, 212, 0.2);
-            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
-            transform: translateY(-2px);
-        }
-        
-        .button-solid {
-            background: linear-gradient(135deg, #06B6D4 0%, #0ea5e9 100%);
-            transition: all 0.3s ease;
-        }
-        
-        .button-solid:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
-        }
-        
+
         .nav-floating {
             position: fixed;
             top: 20px;
@@ -127,46 +116,19 @@
             z-index: 1000;
             animation: float 6s ease-in-out infinite;
         }
-        
-        .stat-card {
-            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(49, 130, 206, 0.05) 100%);
-            border: 1px solid rgba(6, 182, 212, 0.2);
-            border-radius: 12px;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        .hero-section {
-            background: linear-gradient(135deg, #0B1120 0%, #1a1f3a 50%, #0B1120 100%);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .bg-blur {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.15;
-        }
-        
-        .blur-cyan {
-            background: #06B6D4;
-        }
-        
-        .blur-indigo {
-            background: #3730a3;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateX(-50%) translateY(0px); }
-            50% { transform: translateX(-50%) translateY(-10px); }
+
+        @media (max-width: 640px) {
+            .nav-floating {
+                top: 10px;
+                padding: 8px 16px !important;
+            }
         }
     </style>
 </head>
-<body class="bg-slate-950">
+<body class="bg-slate-950 overflow-x-hidden w-full">
     
     <!-- Floating Navbar with Glassmorphism -->
-    <nav class="nav-floating glass-effect rounded-full px-8 py-3 flex items-center gap-8">
+    <nav class="nav-floating glass-effect rounded-full px-8 py-3 flex items-center gap-8 max-w-md sm:max-w-lg">
         <div class="text-cyan-400 font-bold text-lg">Malin Jeremy</div>
         <div class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
             <a href="#about" class="hover:text-cyan-400 transition">À propos</a>
@@ -177,62 +139,64 @@
     </nav>
     
     <!-- Animated Background Blurs -->
-    <div class="bg-blur blur-cyan" style="width: 500px; height: 500px; top: -100px; right: -100px;"></div>
-    <div class="bg-blur blur-indigo" style="width: 400px; height: 400px; bottom: -50px; left: -50px;"></div>
+    <div class="fixed top-0 left-0 right-0 bottom-0 pointer-events-none overflow-hidden">
+        <div class="absolute w-96 h-96 bg-purple-600 rounded-full filter blur-3xl opacity-10 -top-20 -right-20"></div>
+        <div class="absolute w-80 h-80 bg-indigo-600 rounded-full filter blur-3xl opacity-10 -bottom-10 -left-10"></div>
+    </div>
     
     <!-- Hero Section -->
-    <section class="hero-section min-h-screen flex items-center justify-center pt-32 pb-16 relative z-10">
-        <div class="container mx-auto px-6 max-w-7xl">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
+    <section class="relative z-10 min-h-screen flex items-center justify-center pt-24 pb-12 sm:pt-32 sm:pb-16 px-4 sm:px-6">
+        <div class="w-full max-w-7xl">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 
                 <!-- Left Column: Content -->
-                <div class="space-y-8 animate-fadeInUp">
+                <div class="space-y-6 sm:space-y-8 animate-fadeInUp">
                     <div>
-                        <h1 class="text-5xl md:text-7xl font-bold text-slate-100 leading-tight mb-4">
+                        <h1 class="text-4xl sm:text-5xl lg:text-7xl font-bold text-slate-100 leading-tight mb-4">
                             Architecte<br>
                             <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">DevOps & Web</span>
                         </h1>
-                        <p class="text-lg text-slate-400 max-w-lg">
+                        <p class="text-base sm:text-lg lg:text-xl text-slate-400 max-w-lg">
                             Solutions d'infrastructure scalable et interfaces web qui redéfinissent les standards d'excellence
                         </p>
                     </div>
                     
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="button-solid px-8 py-3 rounded-lg text-white font-semibold">
+                        <button class="px-6 sm:px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:shadow-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300">
                             Voir les projets →
                         </button>
-                        <button class="button-glass px-8 py-3 rounded-lg text-cyan-400 font-semibold">
+                        <button class="px-6 sm:px-8 py-3 rounded-lg bg-cyan-500/20 text-cyan-400 font-semibold border border-cyan-400/50 hover:bg-cyan-500/30 hover:border-cyan-300 transition-all duration-300">
                             Me contacter
                         </button>
                     </div>
                     
                     <!-- Stats -->
-                    <div class="grid grid-cols-3 gap-4 pt-8">
-                        <div class="stat-card">
-                            <div class="text-2xl font-bold text-cyan-400">3+</div>
-                            <div class="text-xs text-slate-400 mt-2">Projets majeurs</div>
+                    <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-6 sm:pt-8">
+                        <div class="bg-purple-500/20 border border-purple-400/30 rounded-lg p-4 text-center backdrop-blur-xl">
+                            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">3+</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-2">Projets majeurs</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="text-2xl font-bold text-cyan-400">100%</div>
-                            <div class="text-xs text-slate-400 mt-2">Qualité</div>
+                        <div class="bg-cyan-500/20 border border-cyan-400/30 rounded-lg p-4 text-center backdrop-blur-xl">
+                            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">100%</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-2">Qualité</div>
                         </div>
-                        <div class="stat-card">
-                            <div class="text-2xl font-bold text-cyan-400">∞</div>
-                            <div class="text-xs text-slate-400 mt-2">Passionné</div>
+                        <div class="bg-teal-500/20 border border-teal-400/30 rounded-lg p-4 text-center backdrop-blur-xl">
+                            <div class="text-2xl sm:text-3xl font-bold text-cyan-400">∞</div>
+                            <div class="text-xs sm:text-sm text-slate-400 mt-2">Passionné</div>
                         </div>
                     </div>
                 </div>
                 
                 <!-- Right Column: Terminal Code Window -->
-                <div class="relative animate-fadeInRight">
+                <div class="relative w-full">
                     <div class="terminal-window" style="transform: perspective(1200px) rotateX(5deg) rotateY(-8deg);">
                         <div class="terminal-header">
                             <div class="terminal-dot dot-red"></div>
                             <div class="terminal-dot dot-yellow"></div>
                             <div class="terminal-dot dot-green"></div>
                         </div>
-                        <div class="terminal-code">
+                        <div class="terminal-code text-xs sm:text-sm">
 <span class="keyword">&lt;Developer&gt;</span>
   <span class="keyword">&lt;profile&gt;</span>
     <span class="keyword">&lt;name&gt;</span><span class="string">Malin Jeremy</span><span class="keyword">&lt;/name&gt;</span>
@@ -252,16 +216,16 @@
     </section>
     
     <!-- About Section -->
-    <section id="about" class="py-20 relative">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <h2 class="text-4xl font-bold mb-4">
+    <section id="about" class="relative z-10 py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+        <div class="w-full max-w-6xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-4">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">À propos</span>
             </h2>
-            <div class="glass-effect rounded-2xl p-8 md:p-12 space-y-4">
-                <p class="text-slate-300 text-lg leading-relaxed">
+            <div class="glass-effect rounded-2xl p-6 sm:p-8 lg:p-12 space-y-4">
+                <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
                     Je suis un architecte cloud passionné qui transforme les défis techniques complexes en solutions élégantes et scalables. Avec une expertise combinée en développement full-stack et infrastructure DevOps, je construis les fondations de la prochaine génération d'applications web.
                 </p>
-                <p class="text-slate-400 text-lg leading-relaxed">
+                <p class="text-slate-400 text-base sm:text-lg leading-relaxed">
                     Mon approche : rigueur technique extrême, obsession pour la performance, et attention obsessionnelle aux détails. Chaque ligne de code, chaque configuration, chaque pipeline est optimisé pour l'excellence.
                 </p>
             </div>
@@ -269,46 +233,45 @@
     </section>
     
     <!-- Projects Section - Featured Case Study Layout -->
-    <section id="projects" class="py-24 relative">
-        <div class="container mx-auto px-6 max-w-7xl">
-            <h2 class="text-5xl font-bold mb-20">
+    <section id="projects" class="relative z-10 py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+        <div class="w-full max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-12 sm:mb-16 lg:mb-20">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets en Vedette</span>
             </h2>
             
-            <div class="space-y-24">
+            <div class="space-y-16 sm:space-y-20 lg:space-y-24">
                 
                 <!-- Project 1: AvisGood - Image Left, Text Right -->
-                <div class="group grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div class="group grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 lg:gap-16 items-center">
                     <!-- Image -->
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-purple-500/20 hover:border-purple-400/60 transition-all duration-500">
-                        <img src="avisgood.png" alt="AvisGood Platform" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div class="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl border border-purple-500/20 hover:border-purple-400/60 transition-all duration-500">
+                        <img src="avisgood.png" alt="AvisGood Platform" class="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     </div>
                     
                     <!-- Content -->
-                    <div class="space-y-6">
+                    <div class="space-y-4 sm:space-y-6">
                         <div>
-                            <div class="inline-block px-4 py-2 rounded-lg bg-purple-500/20 text-purple-300 text-sm font-semibold mb-4 border border-purple-400/30">
+                            <div class="inline-block px-4 py-2 rounded-lg bg-purple-500/20 text-purple-300 text-xs sm:text-sm font-semibold mb-3 sm:mb-4 border border-purple-400/30">
                                 Gestion d'Avis
                             </div>
-                            <h3 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4">AvisGood</h3>
-                            <p class="text-lg text-slate-300 leading-relaxed">
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100 mb-2 sm:mb-4">AvisGood</h3>
+                            <p class="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
                                 Plateforme collaborative révolutionnaire pour la gestion centralisée des avis clients. Système d'authentification avancé, dashboard analytique en temps réel, et insights intelligents pour optimiser votre réputation digitale.
                             </p>
                         </div>
                         
                         <!-- Tech Stack -->
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-sm font-semibold border border-purple-400/30">React</span>
-                            <span class="px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-sm font-semibold border border-purple-400/30">Node.js</span>
-                            <span class="px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-sm font-semibold border border-purple-400/30">PostgreSQL</span>
-                            <span class="px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-sm font-semibold border border-purple-400/30">Real-time Analytics</span>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-xs sm:text-sm font-semibold border border-purple-400/30">React</span>
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-xs sm:text-sm font-semibold border border-purple-400/30">Node.js</span>
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-purple-500/20 text-purple-300 text-xs sm:text-sm font-semibold border border-purple-400/30">PostgreSQL</span>
                         </div>
                         
                         <!-- CTA -->
-                        <a href="https://avisgood.com/" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold hover:shadow-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-300">
+                        <a href="https://avisgood.com/" target="_blank" class="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-purple-500 to-purple-600 text-white font-bold text-sm sm:text-base hover:shadow-lg hover:from-purple-600 hover:to-purple-700 transition-all duration-300">
                             Découvrir le projet
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
                         </a>
@@ -316,75 +279,73 @@
                 </div>
                 
                 <!-- Project 2: SmileEdit - Text Left, Image Right -->
-                <div class="group grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div class="group grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 lg:gap-16 items-center">
                     <!-- Content (appears first on mobile, left on desktop) -->
-                    <div class="space-y-6 order-last md:order-first">
+                    <div class="space-y-4 sm:space-y-6 order-last lg:order-first">
                         <div>
-                            <div class="inline-block px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 text-sm font-semibold mb-4 border border-cyan-400/30">
+                            <div class="inline-block px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 text-xs sm:text-sm font-semibold mb-3 sm:mb-4 border border-cyan-400/30">
                                 Éditeur Web
                             </div>
-                            <h3 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4">SmileEdit</h3>
-                            <p class="text-lg text-slate-300 leading-relaxed">
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100 mb-2 sm:mb-4">SmileEdit</h3>
+                            <p class="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
                                 Éditeur web intuitif nouvelle génération avec interface drag-and-drop révolutionnaire. Création et modification de contenus simplifiées, export multiformat, et collaboration en temps réel pour les équipes créatives.
                             </p>
                         </div>
                         
                         <!-- Tech Stack -->
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-sm font-semibold border border-cyan-400/30">Vue.js</span>
-                            <span class="px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-sm font-semibold border border-cyan-400/30">Vite</span>
-                            <span class="px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-sm font-semibold border border-cyan-400/30">WebGL</span>
-                            <span class="px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-sm font-semibold border border-cyan-400/30">Real-time Sync</span>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-xs sm:text-sm font-semibold border border-cyan-400/30">Vue.js</span>
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-xs sm:text-sm font-semibold border border-cyan-400/30">Vite</span>
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-cyan-500/20 text-cyan-300 text-xs sm:text-sm font-semibold border border-cyan-400/30">WebGL</span>
                         </div>
                         
                         <!-- CTA -->
-                        <a href="https://smileedit.fr/" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold hover:shadow-lg hover:from-cyan-600 hover:to-cyan-700 transition-all duration-300">
+                        <a href="https://smileedit.fr/" target="_blank" class="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-bold text-sm sm:text-base hover:shadow-lg hover:from-cyan-600 hover:to-cyan-700 transition-all duration-300">
                             Découvrir le projet
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
                         </a>
                     </div>
                     
                     <!-- Image -->
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-cyan-500/20 hover:border-cyan-400/60 transition-all duration-500 order-first md:order-last">
-                        <img src="smileedit.png" alt="SmileEdit Editor" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div class="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl border border-cyan-500/20 hover:border-cyan-400/60 transition-all duration-500 order-first lg:order-last">
+                        <img src="smileedit.png" alt="SmileEdit Editor" class="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     </div>
                 </div>
                 
                 <!-- Project 3: AiGengo - Image Left, Text Right -->
-                <div class="group grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+                <div class="group grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 lg:gap-16 items-center">
                     <!-- Image -->
-                    <div class="relative overflow-hidden rounded-2xl shadow-2xl border border-teal-500/20 hover:border-teal-400/60 transition-all duration-500">
-                        <img src="aigengo.png" alt="AiGengo Platform" class="w-full h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
+                    <div class="relative overflow-hidden rounded-xl sm:rounded-2xl shadow-2xl border border-teal-500/20 hover:border-teal-400/60 transition-all duration-500">
+                        <img src="aigengo.png" alt="AiGengo Platform" class="w-full h-64 sm:h-80 lg:h-96 object-cover group-hover:scale-110 transition-transform duration-500" />
                         <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
                     </div>
                     
                     <!-- Content -->
-                    <div class="space-y-6">
+                    <div class="space-y-4 sm:space-y-6">
                         <div>
-                            <div class="inline-block px-4 py-2 rounded-lg bg-teal-500/20 text-teal-300 text-sm font-semibold mb-4 border border-teal-400/30">
+                            <div class="inline-block px-4 py-2 rounded-lg bg-teal-500/20 text-teal-300 text-xs sm:text-sm font-semibold mb-3 sm:mb-4 border border-teal-400/30">
                                 IA Générative
                             </div>
-                            <h3 class="text-4xl md:text-5xl font-bold text-slate-100 mb-4">AiGengo</h3>
-                            <p class="text-lg text-slate-300 leading-relaxed">
+                            <h3 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-100 mb-2 sm:mb-4">AiGengo</h3>
+                            <p class="text-sm sm:text-base lg:text-lg text-slate-300 leading-relaxed">
                                 Plateforme IA générative de pointe pour la création de contenu intelligent. Modèles pré-entraînés optimisés, fine-tuning personnalisé, et workflows d'automatisation pour accélérer votre production créative.
                             </p>
                         </div>
                         
                         <!-- Tech Stack -->
-                        <div class="flex flex-wrap gap-3">
-                            <span class="px-4 py-2 rounded-full bg-teal-500/20 text-teal-300 text-sm font-semibold border border-teal-400/30">Python</span>
-                            <span class="px-4 py-2 rounded-full bg-teal-500/20 text-teal-300 text-sm font-semibold border border-teal-400/30">FastAPI</span>
-                            <span class="px-4 py-2 rounded-full bg-teal-500/20 text-teal-300 text-sm font-semibold border border-teal-400/30">ML/AI Models</span>
-                            <span class="px-4 py-2 rounded-full bg-teal-500/20 text-teal-300 text-sm font-semibold border border-teal-400/30">Cloud Deployment</span>
+                        <div class="flex flex-wrap gap-2 sm:gap-3">
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-teal-500/20 text-teal-300 text-xs sm:text-sm font-semibold border border-teal-400/30">Python</span>
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-teal-500/20 text-teal-300 text-xs sm:text-sm font-semibold border border-teal-400/30">FastAPI</span>
+                            <span class="px-3 sm:px-4 py-2 rounded-full bg-teal-500/20 text-teal-300 text-xs sm:text-sm font-semibold border border-teal-400/30">ML/AI</span>
                         </div>
                         
                         <!-- CTA -->
-                        <a href="https://aigengo.com/" target="_blank" class="inline-flex items-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-teal-500 to-teal-600 text-white font-bold hover:shadow-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300">
+                        <a href="https://aigengo.com/" target="_blank" class="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-teal-500 to-teal-600 text-white font-bold text-sm sm:text-base hover:shadow-lg hover:from-teal-600 hover:to-teal-700 transition-all duration-300">
                             Découvrir le projet
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-4 h-4 sm:w-5 sm:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
                             </svg>
                         </a>
@@ -396,80 +357,80 @@
     </section>
     
     <!-- Skills Section - Tech Ecosystem Grid -->
-    <section id="skills" class="py-24 relative">
-        <div class="container mx-auto px-6 max-w-7xl">
-            <h2 class="text-5xl font-bold mb-20">
+    <section id="skills" class="relative z-10 py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+        <div class="w-full max-w-7xl mx-auto">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-12 sm:mb-16 lg:mb-20">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Écosystème Technique</span>
             </h2>
             
             <!-- 2x2 Grid of Tech Cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 lg:gap-10">
                 
                 <!-- Card 1: Backend & Scripting -->
-                <div class="group relative overflow-hidden rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-900/10 via-slate-900/20 to-purple-900/10 p-10 md:p-12 backdrop-blur-xl hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl">
+                <div class="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-purple-500/20 bg-gradient-to-br from-purple-900/10 via-slate-900/20 to-purple-900/10 p-6 sm:p-8 lg:p-10 backdrop-blur-xl hover:border-purple-400/60 transition-all duration-500 hover:shadow-2xl">
                     <!-- Header -->
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-slate-100 mb-2">Backend & Scripting</h3>
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-100 mb-2">Backend & Scripting</h3>
                         <div class="w-12 h-1 bg-gradient-to-r from-purple-400 to-purple-600 rounded-full"></div>
                     </div>
                     
                     <!-- Skills Grid -->
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">Python</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">PHP</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">Bash</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">Node.js</span>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">Python</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">PHP</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">Bash</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-purple-500/20 text-purple-300 border border-purple-400/40 hover:shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:border-purple-300 transition-all duration-300 cursor-default">Node.js</span>
                     </div>
                 </div>
                 
                 <!-- Card 2: Frontend & UI -->
-                <div class="group relative overflow-hidden rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-900/10 via-slate-900/20 to-cyan-900/10 p-10 md:p-12 backdrop-blur-xl hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl">
+                <div class="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-cyan-500/20 bg-gradient-to-br from-cyan-900/10 via-slate-900/20 to-cyan-900/10 p-6 sm:p-8 lg:p-10 backdrop-blur-xl hover:border-cyan-400/60 transition-all duration-500 hover:shadow-2xl">
                     <!-- Header -->
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-slate-100 mb-2">Frontend & UI</h3>
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-100 mb-2">Frontend & UI</h3>
                         <div class="w-12 h-1 bg-gradient-to-r from-cyan-400 to-cyan-600 rounded-full"></div>
                     </div>
                     
                     <!-- Skills Grid -->
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">JavaScript</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">HTML5</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">CSS3</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">Bootstrap</span>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">JavaScript</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">HTML5</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">CSS3</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 hover:shadow-[0_0_15px_rgba(34,211,238,0.4)] hover:border-cyan-300 transition-all duration-300 cursor-default">Bootstrap</span>
                     </div>
                 </div>
                 
                 <!-- Card 3: Data & Automation -->
-                <div class="group relative overflow-hidden rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-900/10 via-slate-900/20 to-emerald-900/10 p-10 md:p-12 backdrop-blur-xl hover:border-emerald-400/60 transition-all duration-500 hover:shadow-2xl">
+                <div class="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-emerald-500/20 bg-gradient-to-br from-emerald-900/10 via-slate-900/20 to-emerald-900/10 p-6 sm:p-8 lg:p-10 backdrop-blur-xl hover:border-emerald-400/60 transition-all duration-500 hover:shadow-2xl">
                     <!-- Header -->
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-slate-100 mb-2">Data & Automation</h3>
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-100 mb-2">Data & Automation</h3>
                         <div class="w-12 h-1 bg-gradient-to-r from-emerald-400 to-emerald-600 rounded-full"></div>
                     </div>
                     
                     <!-- Skills Grid -->
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">MySQL</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">SQLite</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">Selenium</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">Flask</span>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">MySQL</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">SQLite</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">Selenium</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 hover:shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:border-emerald-300 transition-all duration-300 cursor-default">Flask</span>
                     </div>
                 </div>
                 
                 <!-- Card 4: DevOps & Tools -->
-                <div class="group relative overflow-hidden rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/10 via-slate-900/20 to-orange-900/10 p-10 md:p-12 backdrop-blur-xl hover:border-orange-400/60 transition-all duration-500 hover:shadow-2xl">
+                <div class="group relative overflow-hidden rounded-xl sm:rounded-2xl border border-orange-500/20 bg-gradient-to-br from-orange-900/10 via-slate-900/20 to-orange-900/10 p-6 sm:p-8 lg:p-10 backdrop-blur-xl hover:border-orange-400/60 transition-all duration-500 hover:shadow-2xl">
                     <!-- Header -->
-                    <div class="mb-8">
-                        <h3 class="text-2xl font-bold text-slate-100 mb-2">DevOps & Tools</h3>
+                    <div class="mb-6 sm:mb-8">
+                        <h3 class="text-xl sm:text-2xl font-bold text-slate-100 mb-2">DevOps & Tools</h3>
                         <div class="w-12 h-1 bg-gradient-to-r from-orange-400 to-orange-600 rounded-full"></div>
                     </div>
                     
                     <!-- Skills Grid -->
-                    <div class="flex flex-wrap gap-3">
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">Docker</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">Git</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">GitHub</span>
-                        <span class="px-4 py-2 rounded-full font-mono text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">Linux CLI</span>
+                    <div class="flex flex-wrap gap-2 sm:gap-3">
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">Docker</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">Git</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">GitHub</span>
+                        <span class="px-3 sm:px-4 py-2 rounded-full font-mono text-xs sm:text-sm font-semibold bg-orange-500/20 text-orange-300 border border-orange-400/40 hover:shadow-[0_0_15px_rgba(249,115,22,0.4)] hover:border-orange-300 transition-all duration-300 cursor-default">Linux CLI</span>
                     </div>
                 </div>
                 
@@ -478,25 +439,25 @@
     </section>
     
     <!-- Contact Section -->
-    <section id="contact" class="py-20 relative">
-        <div class="container mx-auto px-6 max-w-6xl text-center">
-            <h2 class="text-4xl font-bold mb-8">
+    <section id="contact" class="relative z-10 py-16 sm:py-20 lg:py-24 px-4 sm:px-6">
+        <div class="w-full max-w-6xl mx-auto text-center">
+            <h2 class="text-4xl sm:text-5xl font-bold mb-6 sm:mb-8">
                 <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Travaillons Ensemble</span>
             </h2>
-            <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto">
+            <p class="text-slate-400 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto">
                 Prêt à transformer vos idées en solutions d'excellence ? Contactez-moi pour discuter de votre prochain projet.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="mailto:contact@example.com" class="button-solid px-8 py-3 rounded-lg text-white font-semibold">Email</a>
-                <a href="https://github.com/feevelvet" class="button-glass px-8 py-3 rounded-lg text-cyan-400 font-semibold">GitHub</a>
-                <a href="https://linkedin.com" class="button-glass px-8 py-3 rounded-lg text-cyan-400 font-semibold">LinkedIn</a>
+            <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
+                <a href="mailto:contact@example.com" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300">Email</a>
+                <a href="https://github.com/feevelvet" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">GitHub</a>
+                <a href="https://linkedin.com" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">LinkedIn</a>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="border-t border-slate-800/50 py-8">
-        <div class="container mx-auto px-6 max-w-6xl text-center text-slate-500 text-sm">
+    <footer class="relative z-10 border-t border-slate-800/50 py-6 sm:py-8 px-4 sm:px-6">
+        <div class="w-full max-w-6xl mx-auto text-center text-slate-500 text-xs sm:text-sm">
             <p>&copy; 2026 Malin Jeremy. Engineered with precision and passion.</p>
         </div>
     </footer>
