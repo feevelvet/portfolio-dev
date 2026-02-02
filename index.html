@@ -265,6 +265,35 @@
                 font-size: 16px;
             }
         }
+
+        /* 3D Terminal Floating Animation */
+        .terminal-container {
+            perspective: 1000px;
+        }
+
+        .terminal-window-3d {
+            transform-style: preserve-3d;
+            animation: float-3d 6s ease-in-out infinite;
+        }
+
+        @keyframes float-3d {
+            0% {
+                transform: rotateY(-10deg) rotateX(5deg) translateY(0px);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(6, 182, 212, 0.1);
+            }
+            50% {
+                transform: rotateY(-12deg) rotateX(8deg) translateY(-20px);
+                box-shadow: 0 40px 100px rgba(0, 0, 0, 0.8), 0 0 60px rgba(6, 182, 212, 0.2);
+            }
+            100% {
+                transform: rotateY(-10deg) rotateX(5deg) translateY(0px);
+                box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(6, 182, 212, 0.1);
+            }
+        }
+
+        .terminal-window-3d:hover {
+            animation-play-state: paused;
+        }
     </style>
 </head>
 <body class="bg-slate-950 overflow-x-hidden w-full">
@@ -330,9 +359,9 @@
                     </div>
                 </div>
                 
-                <!-- Right Column: Terminal Code Window -->
-                <div class="relative w-full">
-                    <div class="terminal-window">
+                <!-- Right Column: Terminal Code Window with 3D Effect -->
+                <div class="relative w-full terminal-container">
+                    <div class="terminal-window terminal-window-3d">
                         <div class="terminal-header">
                             <div class="terminal-dot dot-red"></div>
                             <div class="terminal-dot dot-yellow"></div>
@@ -590,9 +619,9 @@
                 Prêt à transformer vos idées en solutions d'excellence ? Contactez-moi pour discuter de votre prochain projet.
             </p>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
-                <a href="mjjp.mali@gmail.com" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300">Email</a>
-                <a href="https://github.com/feevelvet" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">GitHub</a>
-                <a href="www.linkedin.com/in/jeremy-malin-3b2b54309" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">LinkedIn</a>
+                <a href="mailto:mjjp.mali@gmail.com" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300">Email</a>
+                <a href="https://github.com/feevelvet" target="_blank" rel="noopener noreferrer" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">GitHub</a>
+                <a href="https://www.linkedin.com/in/jeremy-malin-3b2b54309/" target="_blank" rel="noopener noreferrer" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">LinkedIn</a>
             </div>
         </div>
     </section>
