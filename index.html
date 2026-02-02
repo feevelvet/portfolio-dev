@@ -268,49 +268,120 @@
         </div>
     </section>
     
-    <!-- Projects Section -->
-    <section id="projects" class="py-20 relative">
-        <div class="container mx-auto px-6 max-w-6xl">
-            <h2 class="text-4xl font-bold mb-12">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets</span>
+    <!-- Projects Section - Bento Grid Premium -->
+    <section id="projects" class="py-24 relative">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <h2 class="text-5xl font-bold mb-16">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets Majeurs</span>
             </h2>
-            <div class="grid md:grid-cols-3 gap-6">
+            
+            <!-- Bento Grid Layout -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 auto-rows-max">
                 
-                <!-- Project 1 -->
-                <div class="glass-effect rounded-xl overflow-hidden hover:border-cyan-400/50 transition group cursor-pointer">
-                    <div class="h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-5xl font-bold text-slate-600 group-hover:scale-110 transition">⭐</div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="text-xl font-bold text-slate-100">AvisGood</h3>
-                        <p class="text-sm text-slate-400">Plateforme collaborative pour la gestion des avis clients avec dashboard temps réel.</p>
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">React</span>
-                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">API</span>
+                <!-- Project 1: AvisGood - Large Feature Card (spans 1 column on lg) -->
+                <div class="group cursor-pointer relative overflow-hidden rounded-2xl border border-purple-500/20 transition-all duration-500 hover:border-purple-400/60 hover:shadow-2xl lg:col-span-1">
+                    <!-- Premium Gradient Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-slate-900/40 to-purple-900/20 backdrop-blur-xl opacity-100 group-hover:opacity-110 transition-opacity"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 flex flex-col h-full p-10 md:p-12">
+                        <!-- Icon Section -->
+                        <div class="mb-8 flex justify-center">
+                            <div class="text-7xl md:text-8xl transform group-hover:scale-110 transition-transform duration-500">⭐</div>
+                        </div>
+                        
+                        <!-- Text Content -->
+                        <div class="flex-1 space-y-6">
+                            <div>
+                                <h3 class="text-3xl md:text-4xl font-bold text-slate-100 mb-3">AvisGood</h3>
+                                <p class="text-lg text-slate-300 leading-relaxed">
+                                    Plateforme collaborative de gestion des avis clients avec système d'authentification avancé et dashboard analytique en temps réel.
+                                </p>
+                            </div>
+                            
+                            <!-- Tech Stack -->
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 rounded-lg bg-purple-500/20 text-purple-300 font-semibold text-sm border border-purple-400/30">React</span>
+                                <span class="px-4 py-2 rounded-lg bg-purple-500/20 text-purple-300 font-semibold text-sm border border-purple-400/30">Node.js</span>
+                                <span class="px-4 py-2 rounded-lg bg-purple-500/20 text-purple-300 font-semibold text-sm border border-purple-400/30">PostgreSQL</span>
+                            </div>
+                            
+                            <!-- CTA -->
+                            <a href="https://avisgood.com/" target="_blank" class="inline-block mt-6 px-6 py-3 rounded-lg bg-purple-500/20 text-purple-300 font-bold border border-purple-400/50 hover:bg-purple-500/40 hover:border-purple-300 transition">
+                                Visiter le projet →
+                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
-                <div class="glass-effect rounded-xl overflow-hidden hover:border-cyan-400/50 transition group cursor-pointer">
-                    <div class="h-48 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center text-5xl font-bold text-slate-600 group-hover:scale-110 transition">✏️</div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="text-xl font-bold text-slate-100">SmileEdit</h3>
-                        <p class="text-sm text-slate-400">Éditeur web intuitif avec interface drag-and-drop et export multiformat.</p>
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">Editor</span>
-                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">UX</span>
+                <!-- Project 2: SmileEdit - Medium Feature Card -->
+                <div class="group cursor-pointer relative overflow-hidden rounded-2xl border border-cyan-500/20 transition-all duration-500 hover:border-cyan-400/60 hover:shadow-2xl lg:col-span-1">
+                    <!-- Premium Gradient Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-cyan-900/30 via-slate-900/40 to-cyan-900/20 backdrop-blur-xl opacity-100 group-hover:opacity-110 transition-opacity"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 flex flex-col h-full p-10 md:p-12">
+                        <!-- Icon Section -->
+                        <div class="mb-8 flex justify-center">
+                            <div class="text-7xl md:text-8xl transform group-hover:scale-110 transition-transform duration-500">✏️</div>
+                        </div>
+                        
+                        <!-- Text Content -->
+                        <div class="flex-1 space-y-6">
+                            <div>
+                                <h3 class="text-3xl md:text-4xl font-bold text-slate-100 mb-3">SmileEdit</h3>
+                                <p class="text-lg text-slate-300 leading-relaxed">
+                                    Éditeur web intuitif pour la création et modification de contenus avec interface drag-and-drop et export multiformat.
+                                </p>
+                            </div>
+                            
+                            <!-- Tech Stack -->
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 font-semibold text-sm border border-cyan-400/30">Vue.js</span>
+                                <span class="px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 font-semibold text-sm border border-cyan-400/30">Vite</span>
+                                <span class="px-4 py-2 rounded-lg bg-cyan-500/20 text-cyan-300 font-semibold text-sm border border-cyan-400/30">WebGL</span>
+                            </div>
+                            
+                            <!-- CTA -->
+                            <a href="https://smileedit.fr/" target="_blank" class="inline-block mt-6 px-6 py-3 rounded-lg bg-cyan-500/20 text-cyan-300 font-bold border border-cyan-400/50 hover:bg-cyan-500/40 hover:border-cyan-300 transition">
+                                Visiter le projet →
+                            </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Project 3 -->
-                <div class="glass-effect rounded-xl overflow-hidden hover:border-cyan-400/50 transition group cursor-pointer">
-                    <div class="h-48 bg-gradient-to-br from-green-500/20 to-teal-500/20 flex items-center justify-center text-5xl font-bold text-slate-600 group-hover:scale-110 transition">🤖</div>
-                    <div class="p-6 space-y-3">
-                        <h3 class="text-xl font-bold text-slate-100">AiGengo</h3>
-                        <p class="text-sm text-slate-400">Plateforme IA générative avec modèles pré-entraînés et fine-tuning personnalisé.</p>
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">ML</span>
-                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">API</span>
+                <!-- Project 3: AiGengo - Large Feature Card -->
+                <div class="group cursor-pointer relative overflow-hidden rounded-2xl border border-teal-500/20 transition-all duration-500 hover:border-teal-400/60 hover:shadow-2xl lg:col-span-1">
+                    <!-- Premium Gradient Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-teal-900/30 via-slate-900/40 to-teal-900/20 backdrop-blur-xl opacity-100 group-hover:opacity-110 transition-opacity"></div>
+                    
+                    <!-- Content -->
+                    <div class="relative z-10 flex flex-col h-full p-10 md:p-12">
+                        <!-- Icon Section -->
+                        <div class="mb-8 flex justify-center">
+                            <div class="text-7xl md:text-8xl transform group-hover:scale-110 transition-transform duration-500">🤖</div>
+                        </div>
+                        
+                        <!-- Text Content -->
+                        <div class="flex-1 space-y-6">
+                            <div>
+                                <h3 class="text-3xl md:text-4xl font-bold text-slate-100 mb-3">AiGengo</h3>
+                                <p class="text-lg text-slate-300 leading-relaxed">
+                                    Plateforme IA générative pour la création de contenu avec modèles pré-entraînés et fine-tuning personnalisé.
+                                </p>
+                            </div>
+                            
+                            <!-- Tech Stack -->
+                            <div class="flex flex-wrap gap-3">
+                                <span class="px-4 py-2 rounded-lg bg-teal-500/20 text-teal-300 font-semibold text-sm border border-teal-400/30">Python</span>
+                                <span class="px-4 py-2 rounded-lg bg-teal-500/20 text-teal-300 font-semibold text-sm border border-teal-400/30">FastAPI</span>
+                                <span class="px-4 py-2 rounded-lg bg-teal-500/20 text-teal-300 font-semibold text-sm border border-teal-400/30">ML/AI</span>
+                            </div>
+                            
+                            <!-- CTA -->
+                            <a href="https://aigengo.com/" target="_blank" class="inline-block mt-6 px-6 py-3 rounded-lg bg-teal-500/20 text-teal-300 font-bold border border-teal-400/50 hover:bg-teal-500/40 hover:border-teal-300 transition">
+                                Visiter le projet →
+                            </a>
                         </div>
                     </div>
                 </div>
