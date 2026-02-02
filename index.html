@@ -3,404 +3,494 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Malin Jeremy - Développeur Web & DevOps</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Malin Jeremy - Développeur Web & DevOps | Engineering Excellence</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        slate: {
+                            950: '#0B1120'
+                        },
+                        cyan: {
+                            400: '#06B6D4'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace']
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(20px)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #0B1120;
+            color: #e2e8f0;
+        }
+        
+        .glass-effect {
+            background: rgba(15, 23, 37, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(6, 182, 212, 0.1);
+        }
+        
+        .glow-cyan {
+            box-shadow: 0 0 40px rgba(6, 182, 212, 0.2);
+        }
+        
+        .terminal-window {
+            background: #1a1a2e;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+        }
+        
+        .terminal-header {
+            background: #252535;
+            padding: 12px 16px;
+            display: flex;
+            gap: 8px;
+            border-bottom: 1px solid rgba(6, 182, 212, 0.1);
+        }
+        
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+        
+        .terminal-code {
+            padding: 24px;
+            color: #00d4ff;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+        
+        .terminal-code .keyword { color: #ff79c6; }
+        .terminal-code .string { color: #f1fa8c; }
+        .terminal-code .comment { color: #6272a4; }
+        
+        .button-glass {
+            background: rgba(6, 182, 212, 0.1);
+            border: 1px solid rgba(6, 182, 212, 0.5);
+            transition: all 0.3s ease;
+        }
+        
+        .button-glass:hover {
+            background: rgba(6, 182, 212, 0.2);
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+            transform: translateY(-2px);
+        }
+        
+        .button-solid {
+            background: linear-gradient(135deg, #06B6D4 0%, #0ea5e9 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .button-solid:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(6, 182, 212, 0.4);
+        }
+        
+        .nav-floating {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(49, 130, 206, 0.05) 100%);
+            border: 1px solid rgba(6, 182, 212, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .hero-section {
+            background: linear-gradient(135deg, #0B1120 0%, #1a1f3a 50%, #0B1120 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .bg-blur {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+        }
+        
+        .blur-cyan {
+            background: #06B6D4;
+        }
+        
+        .blur-indigo {
+            background: #3730a3;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateX(-50%) translateY(0px); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <span class="logo-text">Malin Jeremy</span>
-                <span class="logo-badge">Dev & DevOps</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">À propos</a></li>
-                <li><a href="#projects" class="nav-link">Projets</a></li>
-                <li><a href="#skills" class="nav-link">Compétences</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+<body class="bg-slate-950">
+    
+    <!-- Floating Navbar with Glassmorphism -->
+    <nav class="nav-floating glass-effect rounded-full px-8 py-3 flex items-center gap-8">
+        <div class="text-cyan-400 font-bold text-lg">Malin Jeremy</div>
+        <div class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
+            <a href="#about" class="hover:text-cyan-400 transition">À propos</a>
+            <a href="#projects" class="hover:text-cyan-400 transition">Projets</a>
+            <a href="#skills" class="hover:text-cyan-400 transition">Compétences</a>
+            <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
         </div>
     </nav>
-
-    <!-- Hero Section with Bento Grid -->
-    <section class="hero">
-        <div class="hero-bento-container">
-            <!-- Large Hero Card -->
-            <div class="hero-card hero-card-large hero-card-main">
-                <div class="card-content">
-                    <h1 class="hero-title">
-                        Développeur Web<br>
-                        <span class="gradient-text">& Expert DevOps</span>
-                    </h1>
-                    <p class="hero-subtitle">
-                        Créateur de solutions digitales modernes et performantes
-                    </p>
-                    <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
-                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
+    
+    <!-- Animated Background Blurs -->
+    <div class="bg-blur blur-cyan" style="width: 500px; height: 500px; top: -100px; right: -100px;"></div>
+    <div class="bg-blur blur-indigo" style="width: 400px; height: 400px; bottom: -50px; left: -50px;"></div>
+    
+    <!-- Hero Section -->
+    <section class="hero-section min-h-screen flex items-center justify-center pt-32 pb-16 relative z-10">
+        <div class="container mx-auto px-6 max-w-7xl">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                
+                <!-- Left Column: Content -->
+                <div class="space-y-8 animate-fadeInUp">
+                    <div>
+                        <h1 class="text-5xl md:text-7xl font-bold text-slate-100 leading-tight mb-4">
+                            Architecte<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">DevOps & Web</span>
+                        </h1>
+                        <p class="text-lg text-slate-400 max-w-lg">
+                            Solutions d'infrastructure scalable et interfaces web qui redéfinissent les standards d'excellence
+                        </p>
+                    </div>
+                    
+                    <!-- CTA Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="button-solid px-8 py-3 rounded-lg text-white font-semibold">
+                            Voir les projets →
+                        </button>
+                        <button class="button-glass px-8 py-3 rounded-lg text-cyan-400 font-semibold">
+                            Me contacter
+                        </button>
+                    </div>
+                    
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-4 pt-8">
+                        <div class="stat-card">
+                            <div class="text-2xl font-bold text-cyan-400">3+</div>
+                            <div class="text-xs text-slate-400 mt-2">Projets majeurs</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="text-2xl font-bold text-cyan-400">100%</div>
+                            <div class="text-xs text-slate-400 mt-2">Qualité</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="text-2xl font-bold text-cyan-400">∞</div>
+                            <div class="text-xs text-slate-400 mt-2">Passionné</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Code Window Card -->
-            <div class="hero-card hero-card-code">
-                <div class="code-window-bento">
-                    <div class="code-header">
-                        <div class="code-dot red"></div>
-                        <div class="code-dot yellow"></div>
-                        <div class="code-dot green"></div>
+                
+                <!-- Right Column: Terminal Code Window -->
+                <div class="relative animate-fadeInRight">
+                    <div class="terminal-window" style="transform: perspective(1200px) rotateX(5deg) rotateY(-8deg);">
+                        <div class="terminal-header">
+                            <div class="terminal-dot dot-red"></div>
+                            <div class="terminal-dot dot-yellow"></div>
+                            <div class="terminal-dot dot-green"></div>
+                        </div>
+                        <div class="terminal-code">
+<span class="keyword">&lt;Developer&gt;</span>
+  <span class="keyword">&lt;profile&gt;</span>
+    <span class="keyword">&lt;name&gt;</span><span class="string">Malin Jeremy</span><span class="keyword">&lt;/name&gt;</span>
+    <span class="keyword">&lt;role&gt;</span><span class="string">Full Stack | DevOps</span><span class="keyword">&lt;/role&gt;</span>
+    <span class="keyword">&lt;expertise&gt;</span><span class="string">Architecture</span><span class="keyword">&lt;/expertise&gt;</span>
+  <span class="keyword">&lt;/profile&gt;</span>
+  <span class="keyword">&lt;mission&gt;</span><span class="string">Excellence</span><span class="keyword">&lt;/mission&gt;</span>
+<span class="keyword">&lt;/Developer&gt;</span>
+                        </div>
                     </div>
-                    <pre><code>&lt;Developer&gt;
-  &lt;name&gt;Malin Jeremy&lt;/name&gt;
-  &lt;passion&gt;Web Dev&lt;/passion&gt;
-  &lt;role&gt;Full Stack&lt;/role&gt;
-&lt;/Developer&gt;</code></pre>
+                    <!-- Glow Effect -->
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg blur-xl opacity-20 -z-10" style="transform: scale(1.05);"></div>
                 </div>
-            </div>
-            
-            <!-- Stats Cards -->
-            <div class="hero-card hero-card-stat">
-                <div class="stat-content">
-                    <div class="stat-number">3+</div>
-                    <div class="stat-label">Projets majeurs</div>
-                </div>
-            </div>
-            <div class="hero-card hero-card-stat">
-                <div class="stat-content">
-                    <div class="stat-number">100%</div>
-                    <div class="stat-label">Qualité</div>
-                </div>
-            </div>
-            <div class="hero-card hero-card-stat">
-                <div class="stat-content">
-                    <div class="stat-number">∞</div>
-                    <div class="stat-label">Passionné</div>
-                </div>
+                
             </div>
         </div>
     </section>
-
+    
     <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">À propos de moi</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        Je suis un développeur web passionné spécialisé dans la création de solutions digitales innovantes 
-                        et performantes. Avec une expertise en développement full-stack et DevOps, je transforme des idées 
-                        en produits web scalables et maintenables.
-                    </p>
-                    <p>
-                        Mon approche combine rigueur technique, design thinking et obsession pour la qualité. 
-                        J'ai contribué au succès de plusieurs projets ambitieux, en mettant l'accent sur 
-                        l'expérience utilisateur et la performance.
-                    </p>
-                    <div class="about-highlights">
-                        <div class="highlight-item">
-                            <span class="highlight-icon">→</span>
-                            <span>Architecture web modulaire et scalable</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">→</span>
-                            <span>Automatisation et pipelines CI/CD</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">→</span>
-                            <span>Optimisation de performance</span>
-                        </div>
-                        <div class="highlight-item">
-                            <span class="highlight-icon">→</span>
-                            <span>Design responsive et moderne</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="about-visual">
-                    <div class="skill-ring">
-                        <div class="ring-item front">
-                            <div class="ring-label">Frontend</div>
-                        </div>
-                        <div class="ring-item back">
-                            <div class="ring-label">Backend</div>
-                        </div>
-                        <div class="ring-item devops">
-                            <div class="ring-label">DevOps</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section with Bento Grid -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Projets Clés</h2>
-            <div class="projects-bento-grid">
-                <!-- AvisGood -->
-                <div class="project-card bento-card-large">
-                    <div class="project-image avisgood">
-                        <img src="avisgood.png" alt="AvisGood preview" class="project-preview-img">
-                        <div class="project-preview-overlay">
-                            <div class="preview-icon">⭐</div>
-                            <div class="preview-text">Gestion d'Avis</div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">AvisGood</h3>
-                        <p class="project-description">
-                            Plateforme collaborative de gestion des avis clients avec système d'authentification avancé 
-                            et dashboard analytique en temps réel.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive</span>
-                        </div>
-                        <a href="https://avisgood.com/" target="_blank" class="project-link">
-                            Visiter le site →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- SmileEdit -->
-                <div class="project-card">
-                    <div class="project-image smileedit">
-                        <img src="smileedit.png" alt="SmileEdit preview" class="project-preview-img">
-                        <div class="project-preview-overlay">
-                            <div class="preview-icon">✏️</div>
-                            <div class="preview-text">Éditeur Web</div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">SmileEdit</h3>
-                        <p class="project-description">
-                            Éditeur web intuitif pour la création et modification de contenus avec interface drag-and-drop 
-                            et export multiformat.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Animations</span>
-                        </div>
-                        <a href="https://smileedit.fr/" target="_blank" class="project-link">
-                            Visiter le site →
-                        </a>
-                    </div>
-                </div>
-
-                <!-- AiGengo -->
-                <div class="project-card">
-                    <div class="project-image aigengo">
-                        <img src="aigengo.png" alt="AiGengo preview" class="project-preview-img">
-                        <div class="project-preview-overlay">
-                            <div class="preview-icon">🤖</div>
-                            <div class="preview-text">IA Générative</div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">AiGengo</h3>
-                        <p class="project-description">
-                            Plateforme IA générative pour la création de contenu avec modèles pré-entraînés et fine-tuning 
-                            personnalisé.
-                        </p>
-                        <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">API Integration</span>
-                        </div>
-                        <a href="https://aigengo.com/" target="_blank" class="project-link">
-                            Visiter le site →
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Skills Section with Bento Cards -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Compétences Techniques</h2>
-            
-            <div class="skills-grid">
-                <!-- Frontend -->
-                <div class="skill-category">
-                    <h3 class="category-title">Frontend</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-name">HTML5 / CSS3</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">JavaScript / TypeScript</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">React / Vue.js</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Responsive Design</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Backend -->
-                <div class="skill-category">
-                    <h3 class="category-title">Backend</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-name">Node.js / Express</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 93%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">PostgreSQL / MongoDB</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Python / FastAPI</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">RESTful APIs</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 92%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- DevOps -->
-                <div class="skill-category">
-                    <h3 class="category-title">DevOps & Infrastructure</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-name">Docker / Containerization</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 91%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Kubernetes / Orchestration</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 87%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">CI/CD Pipelines (GitHub, GitLab)</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 89%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Cloud (AWS, GCP, Azure)</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 86%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Tools & Other -->
-                <div class="skill-category">
-                    <h3 class="category-title">Outils & Autres</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <div class="skill-name">Git / GitHub</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 94%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Webpack / Vite</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Testing (Jest, Pytest)</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                        <div class="skill-item">
-                            <div class="skill-name">Linux / Shell Scripting</div>
-                            <div class="skill-bar">
-                                <div class="skill-fill" style="width: 89%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Travaillons Ensemble</h2>
-            <div class="contact-content">
-                <p class="contact-subtitle">
-                    Vous avez un projet en tête ? Contactez-moi pour discuter de vos besoins.
+    <section id="about" class="py-20 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-4xl font-bold mb-4">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">À propos</span>
+            </h2>
+            <div class="glass-effect rounded-2xl p-8 md:p-12 space-y-4">
+                <p class="text-slate-300 text-lg leading-relaxed">
+                    Je suis un architecte cloud passionné qui transforme les défis techniques complexes en solutions élégantes et scalables. Avec une expertise combinée en développement full-stack et infrastructure DevOps, je construis les fondations de la prochaine génération d'applications web.
                 </p>
-                <div class="contact-links">
-                    <a href="mailto:contact@example.com" class="contact-link">
-                        <span class="link-icon">✉</span>
-                        <span>Email</span>
-                    </a>
-                    <a href="https://github.com/feevelvet" target="_blank" class="contact-link">
-                        <span class="link-icon">⚙</span>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://linkedin.com" target="_blank" class="contact-link">
-                        <span class="link-icon">💼</span>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://twitter.com" target="_blank" class="contact-link">
-                        <span class="link-icon">𝕏</span>
-                        <span>Twitter</span>
-                    </a>
-                </div>
+                <p class="text-slate-400 text-lg leading-relaxed">
+                    Mon approche : rigueur technique extrême, obsession pour la performance, et attention obsessionnelle aux détails. Chaque ligne de code, chaque configuration, chaque pipeline est optimisé pour l'excellence.
+                </p>
             </div>
         </div>
     </section>
-
+    
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Projets</span>
+            </h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                
+                <!-- Project 1 -->
+                <div class="glass-effect rounded-xl overflow-hidden hover:border-cyan-400/50 transition group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-purple-500/20 to-pink-500/20 flex items-center justify-center text-5xl font-bold text-slate-600 group-hover:scale-110 transition">⭐</div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-bold text-slate-100">AvisGood</h3>
+                        <p class="text-sm text-slate-400">Plateforme collaborative pour la gestion des avis clients avec dashboard temps réel.</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">React</span>
+                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">API</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="glass-effect rounded-xl overflow-hidden hover:border-cyan-400/50 transition group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-cyan-500/20 to-blue-500/20 flex items-center justify-center text-5xl font-bold text-slate-600 group-hover:scale-110 transition">✏️</div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-bold text-slate-100">SmileEdit</h3>
+                        <p class="text-sm text-slate-400">Éditeur web intuitif avec interface drag-and-drop et export multiformat.</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">Editor</span>
+                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">UX</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="glass-effect rounded-xl overflow-hidden hover:border-cyan-400/50 transition group cursor-pointer">
+                    <div class="h-48 bg-gradient-to-br from-green-500/20 to-teal-500/20 flex items-center justify-center text-5xl font-bold text-slate-600 group-hover:scale-110 transition">🤖</div>
+                    <div class="p-6 space-y-3">
+                        <h3 class="text-xl font-bold text-slate-100">AiGengo</h3>
+                        <p class="text-sm text-slate-400">Plateforme IA générative avec modèles pré-entraînés et fine-tuning personnalisé.</p>
+                        <div class="flex gap-2 flex-wrap">
+                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">ML</span>
+                            <span class="text-xs bg-cyan-400/10 text-cyan-400 px-2 py-1 rounded">API</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 relative">
+        <div class="container mx-auto px-6 max-w-6xl">
+            <h2 class="text-4xl font-bold mb-12">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Compétences</span>
+            </h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Frontend -->
+                <div class="glass-effect rounded-xl p-8 space-y-4">
+                    <h3 class="text-lg font-bold text-cyan-400">Frontend</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">HTML5 / CSS3</span>
+                                <span class="text-xs text-cyan-400">95%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">JavaScript / TypeScript</span>
+                                <span class="text-xs text-cyan-400">92%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">React / Vue.js</span>
+                                <span class="text-xs text-cyan-400">90%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Backend -->
+                <div class="glass-effect rounded-xl p-8 space-y-4">
+                    <h3 class="text-lg font-bold text-cyan-400">Backend</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">Node.js / Express</span>
+                                <span class="text-xs text-cyan-400">93%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">PostgreSQL / MongoDB</span>
+                                <span class="text-xs text-cyan-400">88%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">Python / FastAPI</span>
+                                <span class="text-xs text-cyan-400">85%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 85%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- DevOps -->
+                <div class="glass-effect rounded-xl p-8 space-y-4">
+                    <h3 class="text-lg font-bold text-cyan-400">DevOps & Infrastructure</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">Docker / Containerization</span>
+                                <span class="text-xs text-cyan-400">91%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 91%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">Kubernetes / Orchestration</span>
+                                <span class="text-xs text-cyan-400">87%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">CI/CD Pipelines</span>
+                                <span class="text-xs text-cyan-400">89%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 89%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Cloud & Tools -->
+                <div class="glass-effect rounded-xl p-8 space-y-4">
+                    <h3 class="text-lg font-bold text-cyan-400">Cloud & Tools</h3>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">AWS / GCP / Azure</span>
+                                <span class="text-xs text-cyan-400">86%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 86%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">Git / GitHub / GitLab</span>
+                                <span class="text-xs text-cyan-400">94%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-2">
+                                <span class="text-sm text-slate-300">Terraform / IaC</span>
+                                <span class="text-xs text-cyan-400">84%</span>
+                            </div>
+                            <div class="h-2 bg-slate-700 rounded-full overflow-hidden">
+                                <div class="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style="width: 84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 relative">
+        <div class="container mx-auto px-6 max-w-6xl text-center">
+            <h2 class="text-4xl font-bold mb-8">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">Travaillons Ensemble</span>
+            </h2>
+            <p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto">
+                Prêt à transformer vos idées en solutions d'excellence ? Contactez-moi pour discuter de votre prochain projet.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="mailto:contact@example.com" class="button-solid px-8 py-3 rounded-lg text-white font-semibold">Email</a>
+                <a href="https://github.com/feevelvet" class="button-glass px-8 py-3 rounded-lg text-cyan-400 font-semibold">GitHub</a>
+                <a href="https://linkedin.com" class="button-glass px-8 py-3 rounded-lg text-cyan-400 font-semibold">LinkedIn</a>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Malin Jeremy. Tous les droits réservés.</p>
-            <p class="footer-credit">Créé avec passion et du code bien structuré.</p>
+    <footer class="border-t border-slate-800/50 py-8">
+        <div class="container mx-auto px-6 max-w-6xl text-center text-slate-500 text-sm">
+            <p>&copy; 2026 Malin Jeremy. Engineered with precision and passion.</p>
         </div>
     </footer>
-
+    
     <script src="script.js"></script>
 </body>
 </html>

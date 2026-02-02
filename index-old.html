@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malin Jeremy - Développeur Web & DevOps</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Malin Jeremy</span>
+                <span class="logo-badge">Dev & DevOps</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">À propos</a></li>
+                <li><a href="#projects" class="nav-link">Projets</a></li>
+                <li><a href="#skills" class="nav-link">Compétences</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Bento Grid -->
+    <section class="hero">
+        <div class="hero-bento-container">
+            <!-- Large Hero Card -->
+            <div class="hero-card hero-card-large hero-card-main">
+                <div class="card-content">
+                    <h1 class="hero-title">
+                        Développeur Web<br>
+                        <span class="gradient-text">& Expert DevOps</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Créateur de solutions digitales modernes et performantes
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-primary">Voir mes projets</a>
+                        <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Code Window Card -->
+            <div class="hero-card hero-card-code">
+                <div class="code-window-bento">
+                    <div class="code-header">
+                        <div class="code-dot red"></div>
+                        <div class="code-dot yellow"></div>
+                        <div class="code-dot green"></div>
+                    </div>
+                    <pre><code>&lt;Developer&gt;
+  &lt;name&gt;Malin Jeremy&lt;/name&gt;
+  &lt;passion&gt;Web Dev&lt;/passion&gt;
+  &lt;role&gt;Full Stack&lt;/role&gt;
+&lt;/Developer&gt;</code></pre>
+                </div>
+            </div>
+            
+            <!-- Stats Cards -->
+            <div class="hero-card hero-card-stat">
+                <div class="stat-content">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Projets majeurs</div>
+                </div>
+            </div>
+            <div class="hero-card hero-card-stat">
+                <div class="stat-content">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Qualité</div>
+                </div>
+            </div>
+            <div class="hero-card hero-card-stat">
+                <div class="stat-content">
+                    <div class="stat-number">∞</div>
+                    <div class="stat-label">Passionné</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">À propos de moi</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        Je suis un développeur web passionné spécialisé dans la création de solutions digitales innovantes 
+                        et performantes. Avec une expertise en développement full-stack et DevOps, je transforme des idées 
+                        en produits web scalables et maintenables.
+                    </p>
+                    <p>
+                        Mon approche combine rigueur technique, design thinking et obsession pour la qualité. 
+                        J'ai contribué au succès de plusieurs projets ambitieux, en mettant l'accent sur 
+                        l'expérience utilisateur et la performance.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <span class="highlight-icon">→</span>
+                            <span>Architecture web modulaire et scalable</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">→</span>
+                            <span>Automatisation et pipelines CI/CD</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">→</span>
+                            <span>Optimisation de performance</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span class="highlight-icon">→</span>
+                            <span>Design responsive et moderne</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual">
+                    <div class="skill-ring">
+                        <div class="ring-item front">
+                            <div class="ring-label">Frontend</div>
+                        </div>
+                        <div class="ring-item back">
+                            <div class="ring-label">Backend</div>
+                        </div>
+                        <div class="ring-item devops">
+                            <div class="ring-label">DevOps</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section with Bento Grid -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projets Clés</h2>
+            <div class="projects-bento-grid">
+                <!-- AvisGood -->
+                <div class="project-card bento-card-large">
+                    <div class="project-image avisgood">
+                        <img src="avisgood.png" alt="AvisGood preview" class="project-preview-img">
+                        <div class="project-preview-overlay">
+                            <div class="preview-icon">⭐</div>
+                            <div class="preview-text">Gestion d'Avis</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AvisGood</h3>
+                        <p class="project-description">
+                            Plateforme collaborative de gestion des avis clients avec système d'authentification avancé 
+                            et dashboard analytique en temps réel.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                        <a href="https://avisgood.com/" target="_blank" class="project-link">
+                            Visiter le site →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- SmileEdit -->
+                <div class="project-card">
+                    <div class="project-image smileedit">
+                        <img src="smileedit.png" alt="SmileEdit preview" class="project-preview-img">
+                        <div class="project-preview-overlay">
+                            <div class="preview-icon">✏️</div>
+                            <div class="preview-text">Éditeur Web</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">SmileEdit</h3>
+                        <p class="project-description">
+                            Éditeur web intuitif pour la création et modification de contenus avec interface drag-and-drop 
+                            et export multiformat.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Animations</span>
+                        </div>
+                        <a href="https://smileedit.fr/" target="_blank" class="project-link">
+                            Visiter le site →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AiGengo -->
+                <div class="project-card">
+                    <div class="project-image aigengo">
+                        <img src="aigengo.png" alt="AiGengo preview" class="project-preview-img">
+                        <div class="project-preview-overlay">
+                            <div class="preview-icon">🤖</div>
+                            <div class="preview-text">IA Générative</div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">AiGengo</h3>
+                        <p class="project-description">
+                            Plateforme IA générative pour la création de contenu avec modèles pré-entraînés et fine-tuning 
+                            personnalisé.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">API Integration</span>
+                        </div>
+                        <a href="https://aigengo.com/" target="_blank" class="project-link">
+                            Visiter le site →
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section with Bento Cards -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Compétences Techniques</h2>
+            
+            <div class="skills-grid">
+                <!-- Frontend -->
+                <div class="skill-category">
+                    <h3 class="category-title">Frontend</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">HTML5 / CSS3</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">JavaScript / TypeScript</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">React / Vue.js</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Responsive Design</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 95%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Backend -->
+                <div class="skill-category">
+                    <h3 class="category-title">Backend</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">Node.js / Express</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 93%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">PostgreSQL / MongoDB</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Python / FastAPI</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">RESTful APIs</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 92%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DevOps -->
+                <div class="skill-category">
+                    <h3 class="category-title">DevOps & Infrastructure</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">Docker / Containerization</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 91%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Kubernetes / Orchestration</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 87%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">CI/CD Pipelines (GitHub, GitLab)</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Cloud (AWS, GCP, Azure)</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 86%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tools & Other -->
+                <div class="skill-category">
+                    <h3 class="category-title">Outils & Autres</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-name">Git / GitHub</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 94%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Webpack / Vite</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 88%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Testing (Jest, Pytest)</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 85%"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">Linux / Shell Scripting</div>
+                            <div class="skill-bar">
+                                <div class="skill-fill" style="width: 89%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Travaillons Ensemble</h2>
+            <div class="contact-content">
+                <p class="contact-subtitle">
+                    Vous avez un projet en tête ? Contactez-moi pour discuter de vos besoins.
+                </p>
+                <div class="contact-links">
+                    <a href="mailto:contact@example.com" class="contact-link">
+                        <span class="link-icon">✉</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://github.com/feevelvet" target="_blank" class="contact-link">
+                        <span class="link-icon">⚙</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="contact-link">
+                        <span class="link-icon">💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://twitter.com" target="_blank" class="contact-link">
+                        <span class="link-icon">𝕏</span>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Malin Jeremy. Tous les droits réservés.</p>
+            <p class="footer-credit">Créé avec passion et du code bien structuré.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
