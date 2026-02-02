@@ -27,11 +27,16 @@
                     },
                     animation: {
                         'float': 'float 6s ease-in-out infinite',
+                        'terminal-float': 'terminal-float 4s ease-in-out infinite',
                     },
                     keyframes: {
                         float: {
                             '0%, 100%': { transform: 'translateY(0px)' },
                             '50%': { transform: 'translateY(20px)' }
+                        },
+                        'terminal-float': {
+                            '0%, 100%': { transform: 'perspective(1200px) rotateX(5deg) rotateY(-8deg) translateY(0px)' },
+                            '50%': { transform: 'perspective(1200px) rotateX(5deg) rotateY(-8deg) translateY(-15px)' }
                         }
                     }
                 }
@@ -44,6 +49,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         html, body {
@@ -75,6 +84,12 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+            animation: terminal-float 4s ease-in-out infinite;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .terminal-window:hover {
+            box-shadow: 0 30px 80px rgba(6, 182, 212, 0.3);
         }
         
         .terminal-header {
@@ -178,6 +193,51 @@
             transform: translateY(-2px);
         }
 
+        /* CTA Button Styles */
+        .cta-primary {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #06B6D4, #0ea5e9);
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-primary:hover {
+            box-shadow: 0 10px 25px rgba(6, 182, 212, 0.3);
+        }
+
+        .cta-primary:active {
+            transform: scale(0.95);
+        }
+
+        .cta-secondary {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            background: rgba(6, 182, 212, 0.2);
+            color: #06B6D4;
+            font-weight: 600;
+            text-decoration: none;
+            text-align: center;
+            border: 1px solid rgba(6, 182, 212, 0.5);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .cta-secondary:hover {
+            background: rgba(6, 182, 212, 0.3);
+            border-color: #06B6D4;
+        }
+
+        .cta-secondary:active {
+            transform: scale(0.95);
+        }
+
         /* Mobile Navbar */
         @media (max-width: 768px) {
             .navbar-floating {
@@ -245,25 +305,25 @@
                     
                     <!-- CTA Buttons -->
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <button class="px-6 sm:px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:shadow-lg hover:from-cyan-600 hover:to-blue-700 transition-all duration-300">
+                        <a href="#projects" class="px-6 sm:px-8 py-3 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold hover:shadow-lg hover:from-cyan-600 hover:to-blue-700 active:scale-95 transition-all duration-300 text-center cursor-pointer">
                             Voir les projets →
-                        </button>
-                        <button class="px-6 sm:px-8 py-3 rounded-lg bg-cyan-500/20 text-cyan-400 font-semibold border border-cyan-400/50 hover:bg-cyan-500/30 hover:border-cyan-300 transition-all duration-300">
+                        </a>
+                        <a href="#contact" class="px-6 sm:px-8 py-3 rounded-lg bg-cyan-500/20 text-cyan-400 font-semibold border border-cyan-400/50 hover:bg-cyan-500/30 hover:border-cyan-300 active:scale-95 transition-all duration-300 text-center cursor-pointer">
                             Me contacter
-                        </button>
+                        </a>
                     </div>
                     
                     <!-- Stats -->
                     <div class="grid grid-cols-3 gap-3 sm:gap-4 pt-6 sm:pt-8">
-                        <div class="bg-purple-500/20 border border-purple-400/30 rounded-lg p-4 text-center backdrop-blur-xl">
+                        <div class="bg-purple-500/20 border border-purple-400/30 rounded-lg p-4 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-purple-500/20 hover:border-purple-500/50 cursor-default">
                             <div class="text-2xl sm:text-3xl font-bold text-cyan-400">3+</div>
                             <div class="text-xs sm:text-sm text-slate-400 mt-2">Projets majeurs</div>
                         </div>
-                        <div class="bg-cyan-500/20 border border-cyan-400/30 rounded-lg p-4 text-center backdrop-blur-xl">
+                        <div class="bg-cyan-500/20 border border-cyan-400/30 rounded-lg p-4 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-cyan-500/20 hover:border-cyan-500/50 cursor-default">
                             <div class="text-2xl sm:text-3xl font-bold text-cyan-400">100%</div>
                             <div class="text-xs sm:text-sm text-slate-400 mt-2">Qualité</div>
                         </div>
-                        <div class="bg-teal-500/20 border border-teal-400/30 rounded-lg p-4 text-center backdrop-blur-xl">
+                        <div class="bg-teal-500/20 border border-teal-400/30 rounded-lg p-4 text-center backdrop-blur-xl transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:shadow-teal-500/20 hover:border-teal-500/50 cursor-default">
                             <div class="text-2xl sm:text-3xl font-bold text-cyan-400">∞</div>
                             <div class="text-xs sm:text-sm text-slate-400 mt-2">Passionné</div>
                         </div>
@@ -272,7 +332,7 @@
                 
                 <!-- Right Column: Terminal Code Window -->
                 <div class="relative w-full">
-                    <div class="terminal-window" style="transform: perspective(1200px) rotateX(5deg) rotateY(-8deg);">
+                    <div class="terminal-window">
                         <div class="terminal-header">
                             <div class="terminal-dot dot-red"></div>
                             <div class="terminal-dot dot-yellow"></div>
@@ -530,9 +590,9 @@
                 Prêt à transformer vos idées en solutions d'excellence ? Contactez-moi pour discuter de votre prochain projet.
             </p>
             <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-4">
-                <a href="mailto:contact@example.com" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300">Email</a>
+                <a href="mjjp.mali@gmail.com" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-bold text-sm sm:text-base hover:shadow-lg transition-all duration-300">Email</a>
                 <a href="https://github.com/feevelvet" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">GitHub</a>
-                <a href="https://linkedin.com" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">LinkedIn</a>
+                <a href="www.linkedin.com/in/jeremy-malin-3b2b54309" class="px-6 sm:px-8 py-3 sm:py-4 rounded-lg bg-cyan-500/20 text-cyan-400 font-bold text-sm sm:text-base border border-cyan-400/50 hover:bg-cyan-500/30 transition-all duration-300">LinkedIn</a>
             </div>
         </div>
     </section>
