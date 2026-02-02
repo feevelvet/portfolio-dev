@@ -55,6 +55,13 @@
             font-family: 'Inter', sans-serif;
             background: #0B1120;
             color: #e2e8f0;
+            padding-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 64px;
+            }
         }
         
         .glass-effect {
@@ -108,33 +115,108 @@
             }
         }
 
-        .nav-floating {
+        .navbar-floating {
             position: fixed;
-            top: 20px;
+            top: 24px;
             left: 50%;
             transform: translateX(-50%);
-            z-index: 1000;
+            z-index: 50;
             animation: float 6s ease-in-out infinite;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(71, 85, 105, 0.3);
+            border-radius: 9999px;
+            padding: 16px 32px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
         }
 
-        @media (max-width: 640px) {
-            .nav-floating {
-                top: 10px;
-                padding: 8px 16px !important;
+        .navbar-brand {
+            font-size: 18px;
+            font-weight: 700;
+            color: #06B6D4;
+            white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
+
+        .navbar-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .navbar-link {
+            font-size: 14px;
+            font-weight: 500;
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .navbar-link:hover {
+            color: #06B6D4;
+        }
+
+        .navbar-cta {
+            padding: 10px 20px;
+            border-radius: 6px;
+            background: linear-gradient(135deg, #06B6D4, #0ea5e9);
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .navbar-cta:hover {
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.4);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Navbar */
+        @media (max-width: 768px) {
+            .navbar-floating {
+                width: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                transform: none;
+                border-radius: 0;
+                padding: 16px 20px;
+                gap: 0;
+                justify-content: space-between;
+                animation: none;
+                background: rgba(11, 17, 32, 0.9);
+                border: none;
+                border-bottom: 1px solid rgba(71, 85, 105, 0.3);
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            }
+
+            .navbar-links {
+                display: none;
+            }
+
+            .navbar-brand {
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body class="bg-slate-950 overflow-x-hidden w-full">
     
-    <!-- Floating Navbar with Glassmorphism -->
-    <nav class="nav-floating glass-effect rounded-full px-8 py-3 flex items-center gap-8 max-w-md sm:max-w-lg">
-        <div class="text-cyan-400 font-bold text-lg">Malin Jeremy</div>
-        <div class="hidden md:flex gap-6 text-sm font-medium text-slate-300">
-            <a href="#about" class="hover:text-cyan-400 transition">À propos</a>
-            <a href="#projects" class="hover:text-cyan-400 transition">Projets</a>
-            <a href="#skills" class="hover:text-cyan-400 transition">Compétences</a>
-            <a href="#contact" class="hover:text-cyan-400 transition">Contact</a>
+    <!-- Premium Floating Navbar with Glassmorphism -->
+    <nav class="navbar-floating">
+        <div class="navbar-brand">Malin Jeremy</div>
+        <div class="navbar-links">
+            <a href="#about" class="navbar-link">À propos</a>
+            <a href="#projects" class="navbar-link">Projets</a>
+            <a href="#skills" class="navbar-link">Compétences</a>
+            <a href="#contact" class="navbar-cta">Contact</a>
         </div>
     </nav>
     
